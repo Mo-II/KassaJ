@@ -1,4 +1,5 @@
 import tkinter as tk
+
 class LandingPage:
     def __init__(self, master):
         self.master = master
@@ -9,5 +10,8 @@ class LandingPage:
 
         self.button = tk.Button(master, text="Click Me!", command=self.say_hello)
         self.button.pack()
+
+    def say_hello(self):
+        print("Hello, button clicked!")    
 
     

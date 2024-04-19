@@ -1,6 +1,6 @@
 class Sauce:
-    def __init__(self, sauceName) -> None:
-        self.sauceName = sauceName
+    def __init__(self, name) -> None:
+        self.name = name
 
     def __str__(self):
-        return f"{self.sauceName}"
+        return f"{self.name}"
