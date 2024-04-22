@@ -6,7 +6,6 @@ from Classes.Sauces import Sauces
 class SaucePage:
     def __init__(self, master):
         self.master = master
-        self.amountList = [0,0,0,0,0,0]
 
     def open(self):
         new_window = tk.Toplevel(self.master)
@@ -21,26 +20,26 @@ class SaucePage:
         arrabiata = Sauce('Arrabiata')
         tomaat = Sauce('Tomaat Mascarpone')
         tomatensaus_met_groentjes = Sauce('Tomatensaus Met Groentjes')
-        self.amountList = [0,0,0,0,0,0]
+        amountList = [0,0,0,0,0,0]
 
         sauces = Sauces([])
         sauces.addMultipleSauces([bolognese, carbonnara, porcini, arrabiata, tomaat, tomatensaus_met_groentjes])
         sauces.listSauces()
         for index,sauce in enumerate(sauces.sauceList):
-            sauceAmountLabel = tk.Label(new_window, text=self.amountList[index])
+            sauceAmountLabel = tk.Label(new_window, text=amountList[index])
             sauceAmountLabel.grid(row=index+1,column=2,padx=5, pady=5)
-            button = tk.Button(new_window, text=sauce.name, command=lambda i=index, s=sauceAmountLabel: self.addToAmount(i,s))
+            button = tk.Button(new_window, text=sauce.name, command=lambda i=index, s=sauceAmountLabel: self.addToAmount(i,s,amountList))
             button.grid(row=index+1,column=0,padx=5, pady=5)
-            buttonmin = tk.Button(new_window, text='-', command=lambda i=index,s=sauceAmountLabel: self.subtractFromAmount(i,s))
+            buttonmin = tk.Button(new_window, text='-', command=lambda i=index,s=sauceAmountLabel: self.subtractFromAmount(i,s,amountList))
             buttonmin.grid(row=index+1,column=1,padx=5, pady=5)
             
 
-    def addToAmount(self,position,label):
-        self.amountList[position] = self.amountList[position] + 1
-        label.config(text=self.amountList[position])
-        print(self.amountList[position])
+    def addToAmount(self,position,label,amountList):
+        amountList[position] = amountList[position] + 1
+        label.config(text=amountList[position])
+        print(amountList[position])
 
-    def subtractFromAmount(self,position,label):
-        self.amountList[position] = self.amountList[position] - 1
-        label.config(text=self.amountList[position])
-        print(self.amountList)
+    def subtractFromAmount(self,position,label,amountList):
+        amountList[position] = amountList[position] - 1
+        label.config(text=amountList[position])
+        print(amountList)
