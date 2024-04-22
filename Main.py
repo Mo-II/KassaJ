@@ -1,6 +1,6 @@
 from Classes.Sauce import Sauce
 from Classes.Sauces import Sauces
-from GUI.LandingPage import LandingPage
+from GUI.LandingPage import LandingPage # type: ignore
 import tkinter as tk
 
 def main():
