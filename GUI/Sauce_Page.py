@@ -2,6 +2,8 @@ import tkinter as tk
 
 from Classes.Sauce import Sauce
 from Classes.Sauces import Sauces
+from Classes.CsvInterface import CsvInterface
+
 
 class SaucePage:
     def __init__(self, master):
@@ -20,26 +22,43 @@ class SaucePage:
         arrabiata = Sauce('Arrabiata')
         tomaat = Sauce('Tomaat Mascarpone')
         tomatensaus_met_groentjes = Sauce('Tomatensaus Met Groentjes')
-        amountList = [0,0,0,0,0,0]
+        amountList = {
+            str(bolognese) : 0,
+            str(carbonnara) : 0,
+            str(porcini) : 0,
+            str(arrabiata) : 0,
+            str(tomaat) : 0,
+            str(tomatensaus_met_groentjes) : 0
+        }
 
         sauces = Sauces([])
         sauces.addMultipleSauces([bolognese, carbonnara, porcini, arrabiata, tomaat, tomatensaus_met_groentjes])
         sauces.listSauces()
-        for index,sauce in enumerate(sauces.sauceList):
-            sauceAmountLabel = tk.Label(new_window, text=amountList[index])
+        index = 0
+        for sauce,amount in amountList.items():
+            sauceAmountLabel = tk.Label(new_window, text=amountList[sauce])
             sauceAmountLabel.grid(row=index+1,column=2,padx=5, pady=5)
-            button = tk.Button(new_window, text=sauce.name, command=lambda i=index, s=sauceAmountLabel: self.addToAmount(i,s,amountList))
+            button = tk.Button(new_window, text=sauce, command=lambda label=sauceAmountLabel, s=sauce: self.addToAmount(label, s, amountList))
             button.grid(row=index+1,column=0,padx=5, pady=5)
-            buttonmin = tk.Button(new_window, text='-', command=lambda i=index,s=sauceAmountLabel: self.subtractFromAmount(i,s,amountList))
+            buttonmin = tk.Button(new_window, text='-', command=lambda s=sauceAmountLabel: self.subtractFromAmount(s, sauce,amountList))
             buttonmin.grid(row=index+1,column=1,padx=5, pady=5)
+            index += 1
+
+        submit = tk.Button(new_window, text='Submit', command=lambda s=amountList: self.submitSauces(s, new_window))
+        submit.grid(row=index+1,column=0,padx=5, pady=5)
             
 
-    def addToAmount(self,position,label,amountList):
-        amountList[position] = amountList[position] + 1
-        label.config(text=amountList[position])
-        print(amountList[position])
+    def addToAmount(self, label, sauce, amountList):
+        amountList[sauce] += 1
+        label.config(text=amountList[sauce])
+        print(amountList[sauce])
 
-    def subtractFromAmount(self,position,label,amountList):
-        amountList[position] = amountList[position] - 1
-        label.config(text=amountList[position])
+    def subtractFromAmount(self, label, sauce, amountList):
+        amountList[sauce] -= 1
+        label.config(text=amountList[sauce])
         print(amountList)
+
+    def submitSauces(self, list, window):
+        csv = CsvInterface
+        csv.writeSauces(csv, 1, list) #1 Is de Event ID, dit zou automatisch moeten aangemaakt worden, een unieke Event ID, die gaat worden gebruikt in CsvInterface om te writen
+        window.destroy()
