@@ -18,9 +18,9 @@ def main():
     root = tk.Tk()
     gui = LandingPage(root)
 
-    for sauce in sauces.sauceList:
-        button = tk.Button(root, text=sauce.name, command=lambda s=sauce: print(s.name))
-        button.pack()
+    #for sauce in sauces.sauceList:
+    #    button = tk.Button(root, text=sauce.name, command=lambda s=sauce: print(s.name))
+    #    button.pack()
     
     root.mainloop()
 
