@@ -2,6 +2,7 @@ from Classes.Sauce import Sauce
 from Classes.Sauces import Sauces
 from GUI.LandingPage import LandingPage # type: ignore
 import tkinter as tk
+import matplotlib.pyplot as plt
 
 def main():
     bolognese = Sauce("Bolognese met vlees van BUTCHER's De Laet")
@@ -23,6 +24,7 @@ def main():
     #    button.pack()
     
     root.mainloop()
+
 
 
 if __name__ == '__main__':
