@@ -1,6 +1,6 @@
 from Classes.Sauce import Sauce
 from Classes.Sauces import Sauces
-from GUI.LandingPage import LandingPage # type: ignore
+from GUI.InitEvent import InitEvent
 import tkinter as tk
 
 def main():
@@ -16,11 +16,8 @@ def main():
     sauces.listSauces()
 
     root = tk.Tk()
-    gui = LandingPage(root)
+    init = InitEvent(root)
 
-    for sauce in sauces.sauceList:
-        button = tk.Button(root, text=sauce.name, command=lambda s=sauce: print(s.name))
-        button.pack()
     
     root.mainloop()
 

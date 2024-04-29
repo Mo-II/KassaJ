@@ -1,13 +1,4 @@
-Event ID,;Event,;Time,;Sauce,;Quantity,Unnamed: 5,Event,Time,Sauce,Quantity
-0,,,,,,test,1713898221.0563965,Bolognese met vlees van BUTCHER's De Laet,12.0
-0,,,,,,test,1713898221.0563965,Carbonara,0.0
-0,,,,,,test,1713898221.0563965,Porcini,0.0
-0,,,,,,test,1713898221.0563965,Arrabiata,3.0
-0,,,,,,test,1713898221.0563965,Tomaat Mascarpone,3.0
-0,,,,,,test,1713898221.0563965,Tomatensaus Met Groentjes,6.0
-1,,,,,,test,1713898427.3905454,Bolognese met vlees van BUTCHER's De Laet,3.0
-1,,,,,,test,1713898427.3905454,Carbonara,2.0
-1,,,,,,test,1713898427.3905454,Porcini,2.0
-1,,,,,,test,1713898427.3905454,Arrabiata,3.0
-1,,,,,,test,1713898427.3905454,Tomaat Mascarpone,0.0
-1,,,,,,test,1713898427.3905454,Tomatensaus Met Groentjes,4.0
+Event, Time, Sauces
+Imagine,1714307641.3307204,"{""Bolognese met vlees van BUTCHER's De Laet"": 6, 'Carbonara': 1, 'Porcini': 1, 'Arrabiata': 1, 'Tomaat Mascarpone': 1, 'Tomatensaus Met Groentjes': 3}"
+Club Vaag,1714307778.6248107,"{""Bolognese met vlees van BUTCHER's De Laet"": 4, 'Carbonara': 4, 'Porcini': 4, 'Arrabiata': 3, 'Tomaat Mascarpone': 3, 'Tomatensaus Met Groentjes': 0}"
+Test,1714308154.372792,"{""Bolognese met vlees van BUTCHER's De Laet"": 4, 'Carbonara': 4, 'Porcini': 7, 'Arrabiata': 0, 'Tomaat Mascarpone': 3, 'Tomatensaus Met Groentjes': 3}"

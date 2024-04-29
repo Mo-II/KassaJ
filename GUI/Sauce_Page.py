@@ -6,8 +6,11 @@ from Classes.CsvInterface import CsvInterface
 
 
 class SaucePage:
-    def __init__(self, master):
+
+
+    def __init__(self, master, sauces):
         self.master = master
+        self.sauces = sauces
 
     def open(self):
         new_window = tk.Toplevel(self.master)
@@ -31,9 +34,6 @@ class SaucePage:
             str(tomatensaus_met_groentjes) : 0
         }
 
-        sauces = Sauces([])
-        sauces.addMultipleSauces([bolognese, carbonnara, porcini, arrabiata, tomaat, tomatensaus_met_groentjes])
-        sauces.listSauces()
         index = 0
         for sauce,amount in amountList.items():
             sauceAmountLabel = tk.Label(new_window, text=amountList[sauce])
@@ -43,6 +43,7 @@ class SaucePage:
             buttonmin = tk.Button(new_window, text='-', command=lambda s=sauceAmountLabel: self.subtractFromAmount(s, sauce,amountList))
             buttonmin.grid(row=index+1,column=1,padx=5, pady=5)
             index += 1
+        
 
         submit = tk.Button(new_window, text='Submit', command=lambda s=amountList: self.submitSauces(s, new_window))
         submit.grid(row=index+1,column=0,padx=5, pady=5)
@@ -58,7 +59,7 @@ class SaucePage:
         label.config(text=amountList[sauce])
         print(amountList)
 
-    def submitSauces(self, list, window):
+    def submitSauces(self, dict, window):
         csv = CsvInterface
-        csv.writeSauces(csv, 1, list) #1 Is de Event ID, dit zou automatisch moeten aangemaakt worden, een unieke Event ID, die gaat worden gebruikt in CsvInterface om te writen
+        self.sauces.addDicts(dict)
         window.destroy()
