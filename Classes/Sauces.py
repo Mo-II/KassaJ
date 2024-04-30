@@ -1,10 +1,11 @@
 from Classes.Sauce import Sauce
 
 class Sauces:
-    saucesDict = {"Bolognese met vlees van BUTCHER's De Laet": 0, 'Carbonara' : 0, 'Porcini' : 0, 'Arrabiata': 0, 'Tomaat Mascarpone': 0, 'Tomatensaus Met Groentjes': 0}
+    
 
     def __init__(self, sauceList) -> None:
         self.sauceList = []
+        self.saucesDict = {"Bolognese met vlees van BUTCHER's De Laet":0,"Carbonara":0,"Porcini":0,"Arrabiata":0,"Tomaat Mascarpone":0,"Tomatensaus Met Groentjes":0}
 
     def addSauce(self, name):
         self.sauceList.append(Sauce(name))
@@ -21,3 +22,6 @@ class Sauces:
     def listSauces(self):
         for sauce in self.sauceList:
             print(sauce)
+
+    def emptyDict(self):
+        self.saucesDict = {"Bolognese met vlees van BUTCHER's De Laet":0,"Carbonara":0,"Porcini":0,"Arrabiata":0,"Tomaat Mascarpone":0,"Tomatensaus Met Groentjes":0}

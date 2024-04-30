@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 
 def main():
     bolognese = Sauce("Bolognese met vlees van BUTCHER's De Laet")
-    carbonnara = Sauce('Carbonara')
-    porcini = Sauce('Porcini')
-    arrabiata = Sauce('Arrabiata')
-    tomaat = Sauce('Tomaat Mascarpone')
-    tomatensaus_met_groentjes = Sauce('Tomatensaus Met Groentjes')
+    carbonnara = Sauce("Carbonara")
+    porcini = Sauce("Porcini")
+    arrabiata = Sauce("Arrabiata")
+    tomaat = Sauce("Tomaat Mascarpone")
+    tomatensaus_met_groentjes = Sauce("Tomatensaus Met Groentjes")
 
     sauces = Sauces([])
     sauces.addMultipleSauces([bolognese, carbonnara, porcini, arrabiata, tomaat, tomatensaus_met_groentjes])
