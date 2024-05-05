@@ -41,20 +41,20 @@ class SaucePage():
 
         index = 0
         for sauce,amount in self.amountList.items():
-            sauceAmountLabel = tk.Label(self.master, text=self.amountList[sauce])
-            sauceAmountLabel.grid(row=index+1,column=2,padx=5, pady=5)
-            button = tk.Button(self.master, text=sauce, command=lambda label=sauceAmountLabel, s=sauce: self.addToAmount(label, s, self.amountList))
-            button.grid(row=index+1,column=0,padx=5, pady=5)
-            buttonmin = tk.Button(self.master, text='-', command=lambda label=sauceAmountLabel, s=sauce: self.subtractFromAmount(label, s,self.amountList))
-            buttonmin.grid(row=index+1,column=1,padx=5, pady=5)
+            sauceAmountLabel = tk.Label(self.master, text=self.amountList[sauce],font=("Arial",20))
+            sauceAmountLabel.grid(row=index+1,column=2,padx=50, pady=10)
+            button = tk.Button(self.master, text=sauce, command=lambda label=sauceAmountLabel, s=sauce: self.addToAmount(label, s, self.amountList),font=("Arial",20))
+            button.grid(row=index+1,column=0,padx=50, pady=10)
+            buttonmin = tk.Button(self.master, text='-', command=lambda label=sauceAmountLabel, s=sauce: self.subtractFromAmount(label, s,self.amountList),font=("Arial",20))
+            buttonmin.grid(row=index+1,column=1,padx=50, pady=10)
             index += 1
         
 
         if not self.flag: 
-            submit = tk.Button(self.master, text='Submit', command=lambda s=self.amountList: self.submitSauces(s)) #Sauzen schrijven naar excel file
+            submit = tk.Button(self.master, text='Submit', command=lambda s=self.amountList: self.submitSauces(s),font=("Arial",20)) #Sauzen schrijven naar excel file
         else:    
-            submit = tk.Button(self.master, text='Submit', command=lambda s=self.amountList: self.replaceSauces(s)) #Sauzen schrijven naar excel file
-        submit.grid(row=index+1,column=0,padx=5, pady=5)
+            submit = tk.Button(self.master, text='Submit', command=lambda s=self.amountList: self.replaceSauces(s),font=("Arial",20)) #Sauzen schrijven naar excel file
+        submit.grid(row=index+1,column=0,padx=50, pady=10)
         self.fig, self.ax = plt.subplots()
         self.canvas = FigureCanvasTkAgg(self.fig, master=self.master)
         self.canvas_widget = self.canvas.get_tk_widget()

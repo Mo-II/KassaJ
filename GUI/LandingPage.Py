@@ -177,10 +177,11 @@ class LandingPage:
     
     def add_sauce(self, sauce_name):
         self.db.add_sauce(sauce_name)
+        self.sauces = self.db.extract_sauces()
 
     def add_sauce_window(self):
         new_root = tk.Tk()
-        new_root.title("Enter Event Name")
+        new_root.title("Enter Sauce Name")
 
         width = 600
         height = 400
